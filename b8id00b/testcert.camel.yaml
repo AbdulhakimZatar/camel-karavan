@@ -1,0 +1,32 @@
+- rest:
+    id: rest-47275
+    get:
+      - id: get-14745
+        to: direct:authnew
+        path: /testcert
+    path: /rest
+- route:
+    id: route-5bd25
+    from:
+      uri: direct:authnew
+      id: from-31605
+      steps:
+        - removeHeader:
+            name: Exchange.HTTP_PATH
+            id: removeHeader-108f5
+        - setHeader:
+            name: Authorization
+            id: setHeader-640e5
+            expression:
+              constant:
+                expression: >-
+                  Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTaWpfaz
+                id: constant-e7685
+        - to:
+            uri: >-
+              https://oxagon-idp.uat.oxagon.internal/auth/realms/demo-appconnect/protocol/openid-connect/userinfo
+            id: to-edb45
+            parameters:
+              httpMethod: GET
+              copyHeaders: true
+              bridgeEndpoint: true
