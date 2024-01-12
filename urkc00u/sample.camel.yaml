@@ -1,0 +1,14 @@
+- route:
+    id: route-c1a3
+    from:
+      uri: kamelet:timer-source
+      id: from-1188
+      parameters:
+        message: hello
+      steps:
+        - log:
+            message: ${body}
+            id: log-eb80
+        - process:
+            ref: Process
+            id: process-ac18
