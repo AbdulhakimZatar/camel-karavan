@@ -6,9 +6,9 @@
       parameters:
         message: hello
       steps:
-        - log:
-            message: ${body}
-            id: log-eb80
         - process:
             ref: Process
             id: process-ac18
+        - log:
+            message: ${body}
+            id: log-028f
