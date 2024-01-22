@@ -1,0 +1,11 @@
+- route:
+    id: route-3fcb
+    from:
+      uri: kamelet:timer-source
+      id: from-8df7
+      parameters:
+        message: sfdsf
+      steps:
+        - log:
+            message: sdf
+            id: log-0bac
