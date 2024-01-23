@@ -1,11 +1,22 @@
+- rest:
+    id: rest-a299
+    get:
+      - id: get-3872
+        path: /rest
+    path: /test
 - route:
-    id: route-3fcb
+    id: route-746c
     from:
-      uri: kamelet:timer-source
-      id: from-8df7
-      parameters:
-        message: sfdsf
+      uri: direct:auth
+      id: from-67f9
       steps:
+        - to:
+            uri: >-
+              https://oxagon-idp.uat.oxagon.internal/auth/realms/demo-appconnect/protocol/openid-connect/userinfo
+            id: to-b094
+            parameters:
+              copyHeaders: true
+              httpMethod: GET
         - log:
-            message: sdf
-            id: log-0bac
+            message: ${body}
+            id: log-d2a5
