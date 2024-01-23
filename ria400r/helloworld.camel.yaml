@@ -1,9 +1,3 @@
-- rest:
-    id: rest-a299
-    get:
-      - id: get-3872
-        path: /rest
-    path: /test
 - route:
     id: route-746c
     from:
@@ -20,3 +14,10 @@
         - log:
             message: ${body}
             id: log-d2a5
+- rest:
+    id: rest-a299
+    get:
+      - id: get-3872
+        path: /rest
+        to: direct:auth
+    path: /test
